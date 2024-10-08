@@ -1,0 +1,6 @@
+<div>
+  <select id="operatorSelect" (change)="onOperatorChange($event)">
+    <option value="">Seleccione un operador</option>
+    <option *ngFor="let operator of operators" [value]="operator.id">{{ operator.name }}</option>
+  </select>
+</div>

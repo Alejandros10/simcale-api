@@ -1,0 +1,31 @@
+.sale-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    label {
+      margin-bottom: 5px;
+    }
+    input {
+      padding: 10px;
+      border: 0px solid #ddd;
+      border-radius: 0px;
+    }
+  }
+
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

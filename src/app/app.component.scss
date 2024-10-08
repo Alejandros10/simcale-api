@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  height: calc(100vh - 100px);
+
+  .history{
+    width: 40%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+  }
+
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+  }
+
+  .logo {
+    flex: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sale {
+    flex: 60%;
+    padding-top: 20px;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
