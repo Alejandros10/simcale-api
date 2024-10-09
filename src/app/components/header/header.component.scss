@@ -10,14 +10,13 @@
   h1 {
     color: #f1f1f1;
     font-size: 36px;
-    font-family: 'Roboto', sans-serif; // Fuente minimalista
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin: 0;
     position: relative;
 
-    // Línea decorativa a la izquierda
     &::before {
       content: '';
       position: absolute;
@@ -29,7 +28,6 @@
       transform: translateY(-50%);
     }
 
-    // Línea decorativa a la derecha
     &::after {
       content: '';
       position: absolute;

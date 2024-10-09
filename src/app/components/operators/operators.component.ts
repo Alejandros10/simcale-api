@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class OperatorsComponent implements OnInit {
   operators: any[] = [];
 
-  // Emitiremos el operador seleccionado para que el componente padre lo use
   @Output() operatorSelected = new EventEmitter<any>();
 
   constructor(private http: HttpClient) { }
@@ -18,6 +17,7 @@ export class OperatorsComponent implements OnInit {
     this.getOperators();
   }
 
+  // TODO: Cambiar por .env
   getOperators() {
     this.http.get<any[]>('http://localhost:8080/api/operators/all')
       .subscribe(response => {

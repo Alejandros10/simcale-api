@@ -1,11 +1,14 @@
 <div class="history-container">
   <h2>Historial de Recargas</h2>
+
   <ul>
     <li *ngFor="let recarga of recargas">
       <strong>Operador:</strong> {{ recarga.operator.name }}<br />
+      <strong>Número celular:</strong> {{ recarga.phoneNumber }}<br />
       <strong>Vendedor:</strong> {{ recarga.seller.name }} ({{ recarga.seller.documentNumber }})<br />
-      <strong>Precio:</strong> {{ recarga.price }}<br />
+      <strong>Valor de recarga:</strong> {{ recarga.price }}<br />
       <strong>Fecha de Venta:</strong> {{ recarga.saleDate | date:'short' }}<br />
     </li>
   </ul>
+
 </div>

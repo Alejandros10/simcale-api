@@ -22,9 +22,8 @@ export class HistoryComponent implements OnInit {
         this.recargas = data;
       },
       (error) => {
-        console.error('Error fetching sales', error);
+        console.error('Error obteniendo recargas', error);
       }
     );
   }
-
 }

@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OperatorService {
-  private apiUrl = 'http://localhost:8080/api/operators';  // URL de tu API Spring Boot
+  // TODO: Cambiar por .env
+  private apiUrl = 'http://localhost:8080/api/operators';
 
   constructor(private http: HttpClient) { }
 

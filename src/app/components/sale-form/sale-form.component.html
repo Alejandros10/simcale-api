@@ -1,21 +1,49 @@
 <div class="sale-form">
   <h2>Realizar Venta</h2>
-  <form (ngSubmit)="submitVenta()">
-    <div class="form-group">
+  <form (ngSubmit)="submitVenta()" #ventaForm="ngForm">
+    <!-- Selector de operadores -->
+    <div class="form-group" [ngClass]="{'highlight': highlightedField === 'operator'}">
+     
       <label for="operador">Operador</label>
-      <app-operators></app-operators>
+      <app-operators (operatorSelected)="onOperatorSelected($event)"></app-operators>
     </div>
 
+    <!-- Número de documento (ID del seller) -->
     <div class="form-group">
-      <label for="documento">Número de Documento</label>
-      <input type="text" id="documento"name="documento" required />
+      <label for="documento">Número de Documento (Seller)</label>
+      <input type="text" id="documento" name="documento"
+        [(ngModel)]="sale.documentNumber" (blur)="findSellerByDocument()"
+        (input)="clearErrorOnInput()"
+        [ngClass]="{'error': documentNotFound}" required />
+
+      <div *ngIf="documentNotFound">
+        <small class="error-message">{{ errorMessage }}</small>
+      </div>
     </div>
 
+    <!-- Valor de la recarga -->
     <div class="form-group">
       <label for="valor">Valor de la Recarga</label>
-      <input type="number" id="valor"  name="valor" required />
+      <input type="number" id="valor" name="valor" [(ngModel)]="sale.price"
+        required min="1" max="900000" #price="ngModel"/>
+      <div *ngIf="price.invalid && price.touched">
+        <small *ngIf="price.errors?.['required']">El valor es requerido.</small>
+        <small *ngIf="price.errors?.['min']">El valor debe ser al menos 1.</small>
+        <small *ngIf="price.errors?.['max']">El valor no puede superar los 10,000.</small>
+      </div>
     </div>
 
-    <button type="submit">Realizar Venta</button>
+    <!-- Número de teléfono -->
+    <div class="form-group">
+      <label for="phoneNumber">Número de Teléfono</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="sale.phoneNumber"
+        required pattern="^[0-9]{10}$" #phoneNumber="ngModel"/>
+      <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
+        <small *ngIf="phoneNumber.errors?.['required']">El número de teléfono es requerido.</small>
+        <small *ngIf="phoneNumber.errors?.['pattern']">El número de teléfono debe tener 10 dígitos.</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="ventaForm.invalid || !selectedOperator">Realizar Venta</button>
   </form>
 </div>

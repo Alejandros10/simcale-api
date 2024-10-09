@@ -3,7 +3,7 @@
 <div class="container">
 
   <div class="history">
-    <app-history></app-history>
+    <app-history #historyComponent></app-history>
   </div>
 
   <div class="right-section">
@@ -13,7 +13,7 @@
     </div>
 
     <div class="sale">
-      <app-sale-form></app-sale-form>
+      <app-sale-form (saleCompleted)="onSaleCompleted()"></app-sale-form>
     </div>
   </div>
 
